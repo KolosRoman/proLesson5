@@ -15,7 +15,7 @@ do {
     Перше число в ступені другого числа введіть - pow,
     Історія операцій введіть - history`);
 
-    } while (operation !== 'sum' && operation !== 'diff' && operation !== 'mult' && operation !== 'div' && operation !== 'pow' && operation !== 'cos' && operation !== 'sin' && operation !== 'history');
+    } while (operation !== 'sum' && operation !== 'diff' && operation !== 'mult' && operation !== 'div' && operation !== 'pow' && operation !== 'cos' && operation !== 'sin' && operation !== 'history' && operation == false);
 
     if (operation == 'sum' || operation == 'diff' || operation == 'mult' || operation == 'div' || operation == 'pow') {
         let a;
@@ -62,17 +62,21 @@ do {
         }
     } else if (operation == 'history') {
 
-        if (array == '') {
+        if (array.length == 0) {
             result = 'Історія операцій порожня';
             alert(result);
         } else {
-            alert(`Історія ваших математичних операцій наступна "${array}"`);
+            let i = 0;
+            while (i < array.length) {
+                console.log(array[i]);
+                i++;
+            }
         }
     }
+    
     if (result !== 'Історія операцій порожня') {
         array[array.length] = result;
     }
+    
     next = confirm('Бажаєте виконати нові розрахунки?');
 } while (next === true);
-
-
